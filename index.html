@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <label id="songStatus" >No songs playing.</label>
-    <h2 id="title">Song title.</h2>
-    <h2 id="artist">Song artist.</h2>
-    <h2 id="album">Song album.</h2>
-    <h2 id="genre">Song genre.</h2>
-    <img id="cover">
     <script src="main.js"></script>
+
+    <input type="file" id="input" accept=".mp3, .wav">
+    <div id="cover"></div>
+    <p id="title"></p>
+    <p id="artist"></p>
+    <p id="album"></p>
+    <p id="genre"></p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+
+    <label id="songStatus" >No songs playing.</label>
 
     <div id="controls">
         <button class="playBtn">Play/Pause</button>
