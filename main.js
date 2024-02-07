@@ -6,9 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const stopButton = document.querySelector('.stopBtn');
     const loopButton = document.querySelector('.loopBtn');
 
+    let isPlaying = false
+
     function playSong() {
-        songStatus.textContent = "[Playing]"
-        audio.play();
+        isPlaying = !isPlaying
+        if (isPlaying){
+            songStatus.textContent = "[Playing]"
+            audio.play();
+        } else {
+            songStatus.textContent = "[Paused]"
+            audio.pause();
+        }
     }
 
     function stopSong() {
