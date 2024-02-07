@@ -5,8 +5,87 @@ document.addEventListener('DOMContentLoaded', function() {
     const playButton = document.querySelector('.playBtn');
     const stopButton = document.querySelector('.stopBtn');
     const loopButton = document.querySelector('.loopBtn');
+    const timer = document.getElementById('timer');
+    const songSlider = document.getElementById('songSlider');
     let isPlaying = false;
+    let animationFrameId;
 
+    // Update timer and slider
+    function updateTimer() {
+        const currentTime = formatTime(song.currentTime);
+        const duration = formatTime(song.duration);
+        timer.textContent = `${currentTime} / ${duration}`;
+        songSlider.value = song.currentTime;
+        songSlider.max = song.duration;
+
+        if (isPlaying) {
+            animationFrameId = requestAnimationFrame(updateTimer);
+        }
+    }
+
+    // Format time in MM:SS format
+    function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    // Change song time when slider is moved
+    songSlider.addEventListener('input', function() {
+        song.currentTime = this.value;
+    });
+
+    // Play the song
+    function playSong() {
+        isPlaying = !isPlaying;
+        if (isPlaying) {
+            songStatus.textContent = "[Playing]";
+            song.play();
+            animationFrameId = requestAnimationFrame(updateTimer);
+            // Update current song
+            document.title = `JSPlayer - ${document.querySelector("#title").textContent} by ${document.querySelector("#artist").textContent}`;
+        } else {
+            songStatus.textContent = "[Paused]";
+            song.pause();
+            cancelAnimationFrame(animationFrameId);
+            // Reset title when paused
+            document.title = "JSPlayer";
+        }
+    }
+
+    // Stop the song
+    function stopSong() {
+        songStatus.textContent = "No songs playing.";
+        song.pause();
+        song.currentTime = 0; // Reset audio to the beginning
+        isPlaying = false;
+        cancelAnimationFrame(animationFrameId);
+    }
+
+    // Loop the song
+    function loopSong() {
+        song.loop = !song.loop;
+        if (song.loop) {
+            songStatus.textContent = "[Playing] & [Looping]";
+        } else {
+            songStatus.textContent = "[Playing]";
+        }
+    }
+
+    // Event listeners for buttons
+    if (playButton) {
+        playButton.addEventListener("click", playSong);
+    }
+
+    if (stopButton) {
+        stopButton.addEventListener("click", stopSong);
+    }
+
+    if (loopButton) {
+        loopButton.addEventListener("click", loopSong);
+    }
+
+    // File input change event
     document.querySelector("#input").addEventListener("change", (event) => {
         const audio = event.target.files[0];
         isPlaying = false; // Reset isPlaying when a new song is selected
@@ -17,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelector("#title").textContent = '';
         document.querySelector("#artist").textContent = '';
         document.querySelector("#album").textContent = '';
-        document.querySelector("#genre").textContent = '';
 
         jsmediatags.read(audio, {
             onSuccess: function(tag) {
@@ -43,9 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (tag.tags.album) {
                         document.querySelector("#album").textContent = tag.tags.album;
                     }
-                    if (tag.tags.genre) {
-                        document.querySelector("#genre").textContent = tag.tags.genre;
-                    }
                 }
                 song = new Audio(URL.createObjectURL(audio)); // Create a new audio object with the new song
             },
@@ -54,46 +129,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    function playSong() {
-        isPlaying = !isPlaying;
-        if (isPlaying) {
-            songStatus.textContent = "[Playing]";
-            song.play();
-        } else if(!isPlaying && !song.loop){
-            songStatus.textContent = "[Paused]";
-            song.pause();
-        }
-        if (!isPlaying && song.loop){
-            songStatus.textContent = "[Playing] & [Looping]";
-        }
-    }
-
-    function stopSong() {
-        songStatus.textContent = "No songs playing.";
-        song.pause();
-        song.currentTime = 0; // Reset audio to the beginning
-    }
-
-    function loopSong() {
-        if (isPlaying) {
-            songStatus.textContent = "[Playing] & [Looping]";
-        } else {
-            songStatus.textContent = "[Paused] & [Looping enabled]";
-        }
-        song.loop = true;
-        song.play();
-    }
-
-    if (playButton) {
-        playButton.addEventListener("click", playSong);
-    }
-
-    if (stopButton) {
-        stopButton.addEventListener("click", stopSong);
-    }
-
-    if (loopButton) {
-        loopButton.addEventListener("click", loopSong);
-    }
 });

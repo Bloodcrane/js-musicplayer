@@ -11,17 +11,27 @@
         <header>
             <h1>JSPlayer</h1>
         </header>
-        <input type="file" id="input" accept=".mp3, .wav">
+
+        <div id="input-container">
+            <input type="file" id="input" accept=".mp3, .wav">
+        </div>
+
+
         <div id="cover"></div>
-        <p id="title">Title</p>
-        <p id="artist">Artist</p>
-        <p id="album">Album</p>
-        <p id="genre">Genre</p>
+        <div id="info-container">
+            <p id="artist">Artist</p>
+            <p id="title">Title</p>
+            <p id="album">Album</p>
+        </div>
         <label id="songStatus">No songs playing.</label>
         <div id="controls">
             <button class="playBtn"></button>
-            <button class="stopBtn"></button>
             <button class="loopBtn"></button>
+        </div>
+        
+        <div id="timer-container">
+            <div id="timer"></div>
+            <input type="range" id="songSlider" min="0" value="0">
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>

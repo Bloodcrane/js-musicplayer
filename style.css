@@ -22,22 +22,49 @@ h1 {
     margin: 0;
 }
 
-#input {
-    display: block;
-    margin: 0 auto 20px auto;
-    margin-left: 300px;
-    text-align: center;
+#timer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
+#timer {
+    margin-right: 10px;
+}
+
+#songSlider {
+    width: 200px;
+    accent-color: #169544;
+}
+
+
+#input-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
 #input::file-selector-button {
+    padding: 0; 
+    background-image: url('./icons/folder.png');
     background-color: #1db954;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 50px; 
+    height: 50px; 
     border-radius: 20px;
+    border: none;
     cursor: pointer;
+    outline: none;
+    color: transparent;
+    text-indent: -9999px; 
+    overflow: hidden;
+    white-space: nowrap;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 
 #input::file-selector-button:hover {
     background-color: #73af89;
@@ -76,6 +103,14 @@ p {
     margin: 0;
 }
 
+#info-container {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+
 #songStatus {
     text-align: center;
     display: block;
@@ -86,24 +121,12 @@ p {
     text-align: center;
 }
 
-.playBtn {
-    background-image: url('./icons/play.png');
-    background-color: #1db954;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-    background-position: center; 
-    width: 50px; 
-    height: 50px; 
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+#input-container{
+    text-align: center;
 }
 
-
-.stopBtn {
-    background-image: url('./icons/cross-circle.png'); /* Add path to your stop icon */
+.playBtn {
+    background-image: url('./icons/play.png');
     background-color: #1db954;
     background-size: 25px 25px;
     background-repeat: no-repeat;
@@ -133,12 +156,12 @@ p {
 }
 
 
-.playBtn:hover, .stopBtn:hover, .loopBtn:hover {
+.playBtn:hover, .loopBtn:hover {
     background-color: #169544;
     transform: scale(1.05);
 }
 
-.playBtn:active, .stopBtn:active, .loopBtn:active {
+.playBtn:active, .loopBtn:active {
     background-color: #395c46;
     transform: scale(0.96);
 }
