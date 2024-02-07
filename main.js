@@ -60,9 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isPlaying) {
             songStatus.textContent = "[Playing]";
             song.play();
-        } else {
+        } else if(!isPlaying && !song.loop){
             songStatus.textContent = "[Paused]";
             song.pause();
+        }
+        if (!isPlaying && song.loop){
+            songStatus.textContent = "[Playing] & [Looping]";
         }
     }
 

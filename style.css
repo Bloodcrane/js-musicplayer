@@ -86,16 +86,52 @@ p {
     text-align: center;
 }
 
-.playBtn, .stopBtn, .loopBtn {
-    padding: 10px 20px;
+.playBtn {
+    background-image: url('./icons/play.png');
     background-color: #1db954;
-    color: #fff;
-    border: none;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 50px; 
+    height: 50px; 
     border-radius: 20px;
+    border: none;
     cursor: pointer;
-    margin: 0 10px;
+    outline: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+
+.stopBtn {
+    background-image: url('./icons/cross-circle.png'); /* Add path to your stop icon */
+    background-color: #1db954;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.loopBtn {
+    background-image: url('./icons/refresh.png'); /* Add path to your loop icon */
+    background-color: #1db954;
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
 
 .playBtn:hover, .stopBtn:hover, .loopBtn:hover {
     background-color: #169544;
