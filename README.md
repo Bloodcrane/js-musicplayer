@@ -1,2 +1,1 @@
-simple music player in html, css and javascript.
-still learning
+Music player in html, css, javascript
