@@ -146,7 +146,7 @@ h1 {
 }
 
 .loopBtn {
-    background-image: url('./icons/refresh.png'); /* Add path to your loop icon */
+    background-image: url('./icons/refresh.png');
     background-color: #1db954;
     background-size: 25px 25px;
     background-repeat: no-repeat;
