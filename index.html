@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modern Music Player</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="main.js"></script>
-
-    <input type="file" id="input" accept=".mp3, .wav">
-    <div id="cover"></div>
-    <p id="title"></p>
-    <p id="artist"></p>
-    <p id="album"></p>
-    <p id="genre"></p>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
-
-    <label id="songStatus" >No songs playing.</label>
-
-    <div id="controls">
-        <button class="playBtn">Play/Pause</button>
-        <button class="stopBtn">Stop</button>
-        <button class="loopBtn">Loop</button>
+    <div class="container">
+        <header>
+            <h1>JSPlayer</h1>
+        </header>
+        <input type="file" id="input" accept=".mp3, .wav">
+        <div id="cover"></div>
+        <p id="title">Title</p>
+        <p id="artist">Artist</p>
+        <p id="album">Album</p>
+        <p id="genre">Genre</p>
+        <label id="songStatus">No songs playing.</label>
+        <div id="controls">
+            <button class="playBtn">Play/Pause</button>
+            <button class="stopBtn">Stop</button>
+            <button class="loopBtn">Loop</button>
+        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

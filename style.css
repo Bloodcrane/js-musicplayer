@@ -1,6 +1,108 @@
-#cover{
-    width: 375px;
-    height: 375px;
-    background-position: center;
-    background-size: cover;
-  }
+body {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+#input {
+    display: block;
+    margin: 0 auto 20px auto;
+    margin-left: 300px;
+    text-align: center;
+}
+
+#input::file-selector-button {
+    background-color: #1db954;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#input::file-selector-button:hover {
+    background-color: #73af89;
+    transform: scale(0.95);
+}
+
+#input::file-selector-button:active{
+    background-color: #395c46;
+    transform: scale(0.90);
+}
+
+#cover {
+    width: 200px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    background-size: cover; 
+    background-position: center; 
+    animation: spin 10s linear infinite; 
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg); 
+    }
+}
+
+
+p {
+    text-align: center;
+    margin: 0;
+}
+
+#songStatus {
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+
+#controls {
+    text-align: center;
+}
+
+.playBtn, .stopBtn, .loopBtn {
+    padding: 10px 20px;
+    background-color: #1db954;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.playBtn:hover, .stopBtn:hover, .loopBtn:hover {
+    background-color: #169544;
+    transform: scale(1.05);
+}
+
+.playBtn:active, .stopBtn:active, .loopBtn:active {
+    background-color: #395c46;
+    transform: scale(0.96);
+}
