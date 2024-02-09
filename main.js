@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function playSong() {
         isPlaying = !isPlaying;
         if (isPlaying) {
-            playButton.style.backgroundColor='#1db954';
+            playButton.style.boxShadow = '0 0 0 2px #1db954';
             song.play();
             animationFrameId = requestAnimationFrame(updateTimer);
             // Update current song
             document.getElementById('cover').style.animationPlayState = 'running';
             document.title = `JSPlayer - ${document.querySelector("#title").textContent} by ${document.querySelector("#artist").textContent}`;
         } else {
-            playButton.style.backgroundColor='#b47171';
+            playButton.style.boxShadow = '0 0 0 2px #b47171';
             song.pause();
             cancelAnimationFrame(animationFrameId);
             // Reset title when paused
@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function loopSong() {
         song.loop = !song.loop;
         if (song.loop) {
-            loopButton.style.backgroundColor='#1db954';
+            loopButton.style.boxShadow = '0 0 0 2px #1db954';
         } else {
-            loopButton.style.backgroundColor='#b47171';
+            loopButton.style.boxShadow = '0 0 0 2px #b47171';
         }
     }
 
@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function() {
         updateTimer();
 
         // Reset output media tags
-        playButton.style.backgroundColor='#b47171';
-        loopButton.style.backgroundColor='#b47171';
+        playButton.style.boxShadow = '0 0 0 2px #b47171';
+        loopButton.style.boxShadow = '0 0 0 2px #b47171';
         document.getElementById('cover').style.animationPlayState = 'paused';
         document.getElementById('cover').style.backgroundImage = "url('./icons/nocover.png')";
         document.querySelector("#title").textContent = '';

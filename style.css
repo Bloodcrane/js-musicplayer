@@ -15,9 +15,10 @@ body {
     margin: 0 auto;
     margin-top: 15px;
     padding: 20px;
-    background-color: rgb(38, 54, 39);
+    background-color: rgb(39, 44, 40);
     border-radius: 1cm;
     background-image: url('./icons/noise-dark.png');
+    box-shadow: 0 0 0 2px #ffffff59;
 }
 
 header {
@@ -44,7 +45,12 @@ h1 {
 
 #songSlider {
     width: 200px;
-    accent-color: #169544;
+    accent-color: #69776e;
+}
+
+#songSlider:active {
+    width: 200px;
+    accent-color: #586d5f;
 }
 
 
@@ -62,7 +68,7 @@ input[type="file"]{
 #input::file-selector-button {
     padding: 0; 
     background-image: url('./icons/folder.png');
-    background-color: #448567;
+    background-color: #1a1b1b;
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-position: center; 
@@ -91,16 +97,17 @@ input[type="file"]{
 }
 
 #cover {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     background-image: url('./icons/nocover.png');
     background-color: #333;
     border-radius: 50%;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     background-size: cover; 
     background-position: center; 
     animation: spin 10s linear infinite; 
+    box-shadow: 0 0 0 15px #1d1d1d;
 }
 
 @keyframes spin {
@@ -119,6 +126,7 @@ input[type="file"]{
     margin-bottom: 15px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    box-shadow: 0 0 0 2px #ffffff59;
 }
 
 .info-item {
@@ -144,7 +152,7 @@ input[type="file"]{
 
 .playBtn {
     background-image: url('./icons/play.png');
-    background-color: #b47171;
+    background-color: #131313;
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-position: center; 
@@ -154,12 +162,14 @@ input[type="file"]{
     border: none;
     cursor: pointer;
     outline: none;
+    box-shadow: 0 0 0 2px #fff;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .loopBtn {
+    box-shadow: 0 0 0 2px #fff;
     background-image: url('./icons/refresh.png');
-    background-color: #b47171;
+    background-color: #131313;
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-position: center; 
@@ -174,11 +184,13 @@ input[type="file"]{
 
 
 .playBtn:hover, .loopBtn:hover {
-    background-color: #72913a;
+    background-color: #202020;
+    box-shadow: 0 0 0 2px #9291ff;
     transform: scale(1.05);
 }
 
 .playBtn:active, .loopBtn:active {
-    background-color: #395c46;
+    background-color: #202020;
+    box-shadow: 0 0 0 2px #9291ff;
     transform: scale(0.96);
 }
