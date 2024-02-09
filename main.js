@@ -113,18 +113,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     if (tag.tags.title) {
                         document.querySelector("#title").textContent = tag.tags.title;
-                    }
+                    } else { document.querySelector("#title").textContent = audio.name; }
                     if (tag.tags.artist) {
                         document.querySelector("#artist").textContent = tag.tags.artist;
-                    }
+                    } else { document.querySelector("#artist").textContent = "Unknown Artist"; }
                     if (tag.tags.album) {
                         document.querySelector("#album").textContent = tag.tags.album;
-                    }
+                    } else { document.querySelector("#album").textContent = "Unknown Album"; }
                 }
                 song = new Audio(URL.createObjectURL(audio)); // Create a new audio object with the new song
             },
             onError: function(error) {
-                console.log(error);
+                document.querySelector("#cover").style.backgroundImage = './icons/nocover.png';
+                document.querySelector("#title").textContent = audio.name;
+                document.querySelector("#artist").textContent = "Unknown Artist";
+                document.querySelector("#album").textContent = "Unknown Album";
+                song = new Audio(URL.createObjectURL(audio));
             }
         });
     });
