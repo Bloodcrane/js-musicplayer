@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function playSong() {
         isPlaying = !isPlaying;
         if (isPlaying) {
-            songStatus.textContent = "[Playing]";
+            playButton.style.backgroundColor='#1db954';
             song.play();
             animationFrameId = requestAnimationFrame(updateTimer);
             // Update current song
             document.title = `JSPlayer - ${document.querySelector("#title").textContent} by ${document.querySelector("#artist").textContent}`;
         } else {
-            songStatus.textContent = "[Paused]";
+            playButton.style.backgroundColor='#b47171';
             song.pause();
             cancelAnimationFrame(animationFrameId);
             // Reset title when paused
@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Stop the song
     function stopSong() {
-        songStatus.textContent = "No songs playing.";
         song.pause();
         song.currentTime = 0; // Reset audio to the beginning
         isPlaying = false;
@@ -66,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function loopSong() {
         song.loop = !song.loop;
         if (song.loop) {
-            songStatus.textContent = "[Playing] & [Looping]";
+            loopButton.style.backgroundColor='#1db954';
         } else {
-            songStatus.textContent = "[Playing]";
+            loopButton.style.backgroundColor='#b47171';
         }
     }
 

@@ -1,18 +1,22 @@
 body {
     background-color: #121212;
     color: #fff;
-    font-family: Arial, sans-serif;
+    font-family: monospace;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    max-width: 800px;
+    display:block;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
 }
 
 header {
+    font-family: monospace;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -48,7 +52,7 @@ h1 {
 #input::file-selector-button {
     padding: 0; 
     background-image: url('./icons/folder.png');
-    background-color: #1db954;
+    background-color: #448567;
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-position: center; 
@@ -79,6 +83,7 @@ h1 {
 #cover {
     width: 200px;
     height: 200px;
+    background-image: url('./icons/nocover.png');
     background-color: #333;
     border-radius: 50%;
     margin: 0 auto;
@@ -102,12 +107,16 @@ h1 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .info-item {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 10px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    padding: 0px 0ch;
+    text-align: center;
+    font-family: monospace;
+    /* border-radius: 10px; */
 }
 
 #artist, #title, #album {
@@ -132,7 +141,7 @@ h1 {
 
 .playBtn {
     background-image: url('./icons/play.png');
-    background-color: #1db954;
+    background-color: #b47171;
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-position: center; 
@@ -147,7 +156,7 @@ h1 {
 
 .loopBtn {
     background-image: url('./icons/refresh.png');
-    background-color: #1db954;
+    background-color: #b47171;
     background-size: 25px 25px;
     background-repeat: no-repeat;
     background-position: center; 
@@ -162,7 +171,7 @@ h1 {
 
 
 .playBtn:hover, .loopBtn:hover {
-    background-color: #169544;
+    background-color: #72913a;
     transform: scale(1.05);
 }
 
