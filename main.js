@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         isPlaying = false; // Reset isPlaying when a new song is selected
         song.loop = false;
         stopSong(); // Stop the old song
+        updateTimer();
 
         // Reset output media tags
         playButton.style.backgroundColor='#b47171';
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 song = new Audio(URL.createObjectURL(audio)); // Create a new audio object with the new song
             },
-            onError: function(error) {
+            onError: function() {
                 document.getElementById('cover').style.backgroundImage = "url('./icons/nocover.png')";
                 document.querySelector("#title").textContent = audio.name;
                 document.querySelector("#artist").textContent = "Unknown Artist";

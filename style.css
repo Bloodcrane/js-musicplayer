@@ -1,9 +1,10 @@
 body {
-    background-color: #121212;
+    background: #181818;
     color: #fff;
     font-family: monospace;
     margin: 0;
     padding: 0;
+    background-image: url('./icons/noise-dark.png');
 }
 
 .container {
@@ -14,8 +15,9 @@ body {
     margin: 0 auto;
     margin-top: 15px;
     padding: 20px;
-    background-color: rgba(22, 22, 22, 0.5);
+    background-color: rgb(38, 54, 39);
     border-radius: 1cm;
+    background-image: url('./icons/noise-dark.png');
 }
 
 header {
