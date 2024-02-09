@@ -132,13 +132,6 @@ input[type="file"]{
     text-align: center;
 }
 
-
-#songStatus {
-    text-align: center;
-    display: block;
-    margin-bottom: 20px;
-}
-
 #controls {
     text-align: center;
 }

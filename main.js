@@ -43,12 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
             song.play();
             animationFrameId = requestAnimationFrame(updateTimer);
             // Update current song
+            document.getElementById('cover').style.animationPlayState = 'running';
             document.title = `JSPlayer - ${document.querySelector("#title").textContent} by ${document.querySelector("#artist").textContent}`;
         } else {
             playButton.style.backgroundColor='#b47171';
             song.pause();
             cancelAnimationFrame(animationFrameId);
             // Reset title when paused
+            document.getElementById('cover').style.animationPlayState = 'paused';
             document.title = "JSPlayer";
         }
     }
@@ -88,10 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector("#input").addEventListener("change", (event) => {
         const audio = event.target.files[0];
         isPlaying = false; // Reset isPlaying when a new song is selected
+        song.loop = false;
         stopSong(); // Stop the old song
 
         // Reset output media tags
-        document.querySelector("#cover").style.backgroundImage = 'none';
+        playButton.style.backgroundColor='#b47171';
+        loopButton.style.backgroundColor='#b47171';
+        document.getElementById('cover').style.animationPlayState = 'paused';
+        document.getElementById('cover').style.backgroundImage = "url('./icons/nocover.png')";
         document.querySelector("#title").textContent = '';
         document.querySelector("#artist").textContent = '';
         document.querySelector("#album").textContent = '';
@@ -124,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 song = new Audio(URL.createObjectURL(audio)); // Create a new audio object with the new song
             },
             onError: function(error) {
-                document.querySelector("#cover").style.backgroundImage = './icons/nocover.png';
+                document.getElementById('cover').style.backgroundImage = "url('./icons/nocover.png')";
                 document.querySelector("#title").textContent = audio.name;
                 document.querySelector("#artist").textContent = "Unknown Artist";
                 document.querySelector("#album").textContent = "Unknown Album";
